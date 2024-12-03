@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MVCBlog.Data;
 using MVCBlog.Models;
 using System.Diagnostics;
 
@@ -15,7 +16,13 @@ namespace MVCBlog.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var vm = new AnasayfaViewModel()
+            {
+                Kategoriler = Veri.Kategoriler().OrderBy(k => k.Ad).ToList(),
+                Yazilar = Veri.Yazilar().OrderByDescending(y => y.OlusturulmaZamani).ToList()
+            };
+
+            return View(vm);
         }
 
         public IActionResult Privacy()
