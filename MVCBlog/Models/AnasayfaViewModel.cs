@@ -7,5 +7,7 @@ namespace MVCBlog.Models
         public List<Kategori> Kategoriler { get; set; } = new();
 
         public List<Yazi> Yazilar { get; set; } = new();
+
+        public Kategori? SeciliKategori { get; set; }
     }
 }

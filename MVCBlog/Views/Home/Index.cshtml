@@ -3,6 +3,11 @@
     ViewData["Title"] = "Anasayfa";
 }
 
+@if (Model.SeciliKategori != null)
+{
+    <h3 class="mb-3">@Model.SeciliKategori.Ad Kategorisindeki Yazılar</h3>
+}
+
 <div class="row">
     <!-- Blog entries-->
     <div class="col-lg-8">
@@ -57,10 +62,14 @@
                     <div class="col-sm-12">
                         <ul class="list-unstyled mb-0">
 
-                            <li><a href="#!">Tümü</a></li>
+                            <li class="@(Model.SeciliKategori == null ? "secili" : "")">
+                                <a asp-route-id="">Tümü</a>
+                            </li>
                             @foreach (Kategori kategori in Model.Kategoriler)
                             {
-                                <li><a href="#!">@kategori.Ad</a></li>
+                                <li class="@(kategori.Id == Model.SeciliKategori?.Id ? "secili": "")">
+                                    <a asp-route-kid="@kategori.Id">@kategori.Ad</a>
+                                </li>
                             }
                         </ul>
                     </div>

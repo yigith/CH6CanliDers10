@@ -9,6 +9,15 @@
         "js/bootstrap.bundle.min.js",
         "css/bootstrap.min.css"
       ]
+    },
+    {
+      "library": "summernote@0.9.1",
+      "destination": "wwwroot/admin/summernote/",
+      "files": [
+        "summernote.min.js",
+        "summernote-bs5.min.css",
+        "summernote-bs5.min.js"
+      ]
     }
   ]
 }
